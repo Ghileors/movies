@@ -1,0 +1,26 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 512px;
+  background-image: url(../../assets/default-poster.png);
+}
+
+.codeError {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.textError {
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homePageLink {
+  color: #ffc107;
+  text-decoration: none;
+}

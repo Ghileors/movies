@@ -1,0 +1,57 @@
+.detailsArticle {
+  display: flex;
+  font-size: 18px;
+  color: #00796b;
+}
+
+b {
+  color: #263238;
+}
+
+.moviePoster {
+  width: 240px;
+  margin-right: 20px;
+}
+
+.gotoMoviesBtn {
+  all: unset;
+  position: fixed;
+  left: 20px;
+  min-width: 40px;
+  height: 40px;
+  padding: 5px;
+  background-color: #00796b;
+  color: #303030;
+  opacity: 0.8;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.gotoMoviesBtn:hover {
+  opacity: 1;
+}
+
+.tagline {
+  color: #ffc107;
+}
+
+@media screen and (max-width: 700px) {
+  .detailsArticle {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+    color: #303030;
+    padding: 0 10px;
+  }
+
+  .reviewText {
+    font-size: 16px;
+  }
+
+  .moviePoster {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+}
