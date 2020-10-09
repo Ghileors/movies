@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import defaultPoster from "../../assets/default-poster.png";
@@ -31,3 +32,19 @@ const MovieCard = ({ movie, match, location }) => (
 );
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movies: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.number.isRequired,
+        profile_path: PropTypes.string.isRequired,
+        original_title: PropTypes.string.isRequired,
+        vote_average: PropTypes.number.isRequired,
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+      })
+    ),
+    PropTypes.array,
+  ]),
+};

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import ApiFetcher from "../services/ApiFetcher";
 
@@ -49,3 +50,16 @@ export default class Reviews extends Component {
     );
   }
 }
+
+Reviews.propTypes = {
+  reviews: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+      })
+    ),
+    PropTypes.array,
+  ]),
+};

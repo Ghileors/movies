@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import ApiFetcher from "../services/ApiFetcher";
 
@@ -63,3 +64,16 @@ export default class Cast extends Component {
     );
   }
 }
+
+Cast.propTypes = {
+  castInfo: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        cast_id: PropTypes.number.isRequired,
+        profile_path: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    PropTypes.array,
+  ]),
+};

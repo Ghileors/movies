@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import style from "./MovieReviewSection.module.scss";
 
 const baseImgUrl = "https://image.tmdb.org/t/p/w500";
@@ -44,3 +46,30 @@ const MovieReviewSection = ({ details, onClick }) => (
 );
 
 export default MovieReviewSection;
+
+MovieReviewSection.propTypes = {
+  poster_path: PropTypes.string.isRequired,
+  original_title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  genre: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    PropTypes.array,
+  ]),
+  tagline: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
+  vote_count: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+  production_countries: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    PropTypes.array,
+  ]),
+  onClick: PropTypes.func.isRequired,
+};
