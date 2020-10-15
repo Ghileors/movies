@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import style from "./Button.module.scss";
 
 const Button = ({ onClick, children }) => {
   return (
-    <button onClick={onClick} type="submit" className={style.SearchFormButton}>
+    <button type="submit" className={style.SearchFormButton}>
       {children}
     </button>
   );
@@ -13,6 +12,3 @@ const Button = ({ onClick, children }) => {
 
 export default Button;
 
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};

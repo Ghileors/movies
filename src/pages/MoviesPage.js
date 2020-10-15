@@ -40,20 +40,20 @@ export default class MoviesPage extends Component {
     });
   };
 
-  handleSearchFetcher = (query) => {
+  handleSearchFetcher = async (query) => {
     this.setState({ isLoading: true });
 
-    const { page } = this.state;
+    this.props.history.push({
+      ...this.props.location,
+      search: `query=${query}`,
+    });
 
-    ApiFetcher.searchFetcher(query, page)
-      .then((movies) =>
-        this.setState((prevState) => ({
-          movies: [...prevState.movies, ...movies],
-          page: prevState.page + 1,
-        }))
-      )
-      .catch((error) => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
+    const { results } = await ApiFetcher.searchFetcher(query);
+
+    this.setState({
+      movies: results,
+      isLoading: false,
+    });
   };
 
   render() {
